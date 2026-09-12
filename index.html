@@ -1,0 +1,1292 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Waris Mandozai</title>
+    <!-- google fonts -->
+    <link rel="stylesheet" href="./src/output.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"
+    />
+    <!-- data aos -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  </head>
+  <body class="pt-20 overflow-x-hidden">
+    <canvas id="kinetic-grid"></canvas>
+    <!-- !=============================== -->
+    <!-- !header section -->
+    <!-- !=============================== -->
+    <div class="fixed top-2 inset-x-0 px-2 sm:px-6 z-40">
+      <header
+        class="relative w-full max-w-6xl mx-auto flex items-center justify-between gap-2 px-2 sm:px-6 py-3 bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-2xl shadow-sm font-sans transition-colors duration-300"
+      >
+        <div class="header-left flex items-center gap-2 shrink-0">
+          <div
+            class="logo w-10 h-10 flex items-center justify-center bg-[#c3d809] hover:bg-[#b0c406] transition-colors duration-300 rounded-xl font-black text-xl text-gray-900 shadow-sm cursor-pointer select-none"
+          >
+            W
+          </div>
+          <h1
+            class="font-oswald text-xl font-bold tracking-wide cursor-pointer text-gray-800 dark:text-zinc-100 hidden sm:flex"
+          >
+            Waris Mandozai
+          </h1>
+        </div>
+
+        <nav
+          class="header-middle hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-8 font-poppins text-sm font-medium text-gray-600 dark:text-zinc-400"
+        >
+          <a
+            href="#"
+            class="hover:text-[#b0c406] dark:hover:text-[#c3d809] transition-colors duration-200 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-[#b0c406] hover:after:w-full after:transition-all after:duration-300"
+            >Home</a
+          >
+
+          <a
+            href="#skills"
+            class="hover:text-[#b0c406] dark:hover:text-[#c3d809] transition-colors duration-200 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-[#b0c406] hover:after:w-full after:transition-all after:duration-300"
+            >Skills</a
+          >
+          <a
+            href="#projects"
+            class="hover:text-[#b0c406] dark:hover:text-[#c3d809] transition-colors duration-200 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-[#b0c406] hover:after:w-full after:transition-all after:duration-300"
+            >Projects</a
+          >
+
+          <a
+            href="#about"
+            class="hover:text-[#b0c406] dark:hover:text-[#c3d809] transition-colors duration-200 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-[#b0c406] hover:after:w-full after:transition-all after:duration-300"
+            >About Me</a
+          >
+          <a
+            href="#contact"
+            class="hover:text-[#b0c406] dark:hover:text-[#c3d809] transition-colors duration-200 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-[#b0c406] hover:after:w-full after:transition-all after:duration-300"
+            >Contact</a
+          >
+        </nav>
+
+        <div
+          class="header-right flex items-center gap-1.5 sm:gap-3 md:gap-6 shrink-0"
+        >
+          <div
+            class="available flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1.5 bg-green-50 dark:bg-green-950/30 rounded-full border border-green-100 dark:border-green-900/50 select-none shrink-0"
+          >
+            <span class="relative flex h-2 w-2 shrink-0">
+              <span
+                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"
+              ></span>
+
+              <span
+                class="relative inline-flex rounded-full h-2 w-2 bg-green-500"
+              ></span>
+            </span>
+
+            <p
+              class="font-poppins text-[10px] sm:text-xs font-semibold text-green-700 dark:text-green-400 tracking-wide uppercase whitespace-nowrap"
+            >
+              Available
+            </p>
+          </div>
+
+          <button
+            id="theme-toggle"
+            class="w-8 h-8 min-[360px]:w-9 min-[360px]:h-9 h-8 flex items-center justify-center rounded-xl bg-gray-100 dark:bg-zinc-800 text-gray-600 dark:text-zinc-300 hover:bg-gray-200 dark:hover:bg-zinc-700 transition-colors duration-200 active:scale-95 shrink-0"
+            aria-label="Toggle dark mode"
+          >
+            <i id="toggle-icon" class="fa-solid fa-moon text-lg"></i>
+          </button>
+
+          <button
+            id="mobile-menu-btn"
+            class="md:hidden w-8 h-8 min-[360px]:w-9 min-[360px]:h-9 flex items-center justify-center rounded-xl bg-gray-100 dark:bg-zinc-800 text-gray-600 dark:text-zinc-300 hover:bg-gray-200 dark:hover:bg-zinc-700 transition-colors duration-200 active:scale-95 shrink-0"
+            aria-label="Open navigation menu"
+          >
+            <i class="fa-solid fa-bars text-lg"></i>
+          </button>
+        </div>
+      </header>
+    </div>
+
+    <div
+      id="mobile-overlay"
+      class="fixed inset-y-0 right-0 z-50 w-full max-w-sm bg-white dark:bg-zinc-950 shadow-2xl border-l border-gray-100 dark:border-zinc-800/80 flex flex-col justify-between p-6 pointer-events-none opacity-0 translate-x-full transition-all duration-300 ease-out md:hidden"
+    >
+      <div
+        class="flex justify-between items-center w-full pb-4 border-b border-gray-100 dark:border-zinc-800/50"
+      >
+        <div class="flex gap-2.5 items-center">
+          <div
+            class="w-9 h-9 flex items-center justify-center bg-[#c3d809] rounded-xl font-black text-lg text-gray-900 shadow-sm"
+          >
+            W
+          </div>
+          <span
+            class="font-oswald text-lg font-bold tracking-wide text-gray-800 dark:text-zinc-100"
+            >Waris Mandozai</span
+          >
+        </div>
+        <button
+          id="close-menu-btn"
+          class="w-9 h-9 flex items-center justify-center rounded-xl bg-gray-50 dark:bg-zinc-900 text-gray-500 dark:text-zinc-400 hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors duration-200"
+        >
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <nav class="flex flex-col gap-3 my-auto font-poppins">
+        <a
+          href="#"
+          class="mobile-link group flex items-center justify-between p-4 bg-gray-50 dark:bg-zinc-900/50 border border-gray-100 dark:border-zinc-900 hover:border-[#c3d809] dark:hover:border-[#c3d809] rounded-2xl transition-all duration-200"
+        >
+          <div class="flex items-center gap-4">
+            <div
+              class="w-10 h-10 flex items-center justify-center rounded-xl bg-white dark:bg-zinc-800 text-gray-700 dark:text-zinc-300 group-hover:bg-[#c3d809] group-hover:text-gray-900 transition-colors duration-200 shadow-sm"
+            >
+              <i class="fa-solid fa-house text-sm"></i>
+            </div>
+            <div class="text-left">
+              <span
+                class="block text-base font-bold text-gray-800 dark:text-zinc-200"
+                >Home</span
+              >
+              <span class="block text-xs text-gray-400 dark:text-zinc-500"
+                >Back to main dashboard</span
+              >
+            </div>
+          </div>
+          <i
+            class="fa-solid fa-chevron-right text-xs text-gray-300 group-hover:text-[#c3d809] transition-colors duration-200 transform group-hover:translate-x-1"
+          ></i>
+        </a>
+
+        <a
+          href="#skills"
+          class="mobile-link group flex items-center justify-between p-4 bg-gray-50 dark:bg-zinc-900/50 border border-gray-100 dark:border-zinc-900 hover:border-[#c3d809] dark:hover:border-[#c3d809] rounded-2xl transition-all duration-200"
+        >
+          <div class="flex items-center gap-4">
+            <div
+              class="w-10 h-10 flex items-center justify-center rounded-xl bg-white dark:bg-zinc-800 text-gray-700 dark:text-zinc-300 group-hover:bg-[#c3d809] group-hover:text-gray-900 transition-colors duration-200 shadow-sm"
+            >
+              <i class="fa-solid fa-layer-group text-sm"></i>
+            </div>
+
+            <div class="text-left">
+              <span
+                class="block text-base font-bold text-gray-800 dark:text-zinc-200"
+              >
+                Skills
+              </span>
+
+              <span class="block text-xs text-gray-400 dark:text-zinc-500">
+                Explore my technologies
+              </span>
+            </div>
+          </div>
+
+          <i
+            class="fa-solid fa-chevron-right text-xs text-gray-300 group-hover:text-[#c3d809] transition-colors duration-200 transform group-hover:translate-x-1"
+          ></i>
+        </a>
+
+        <a
+          href="#projects"
+          class="mobile-link group flex items-center justify-between p-4 bg-gray-50 dark:bg-zinc-900/50 border border-gray-100 dark:border-zinc-900 hover:border-[#c3d809] dark:hover:border-[#c3d809] rounded-2xl transition-all duration-200"
+        >
+          <div class="flex items-center gap-4">
+            <div
+              class="w-10 h-10 flex items-center justify-center rounded-xl bg-white dark:bg-zinc-800 text-gray-700 dark:text-zinc-300 group-hover:bg-[#c3d809] group-hover:text-gray-900 transition-colors duration-200 shadow-sm"
+            >
+              <i class="fa-solid fa-code text-sm"></i>
+            </div>
+            <div class="text-left">
+              <span
+                class="block text-base font-bold text-gray-800 dark:text-zinc-200"
+                >Projects</span
+              >
+              <span class="block text-xs text-gray-400 dark:text-zinc-500"
+                >Explore my work gallery</span
+              >
+            </div>
+          </div>
+          <i
+            class="fa-solid fa-chevron-right text-xs text-gray-300 group-hover:text-[#c3d809] transition-colors duration-200 transform group-hover:translate-x-1"
+          ></i>
+        </a>
+
+        <a
+          href="#about"
+          class="mobile-link group flex items-center justify-between p-4 bg-gray-50 dark:bg-zinc-900/50 border border-gray-100 dark:border-zinc-900 hover:border-[#c3d809] dark:hover:border-[#c3d809] rounded-2xl transition-all duration-200"
+        >
+          <div class="flex items-center gap-4">
+            <div
+              class="w-10 h-10 flex items-center justify-center rounded-xl bg-white dark:bg-zinc-800 text-gray-700 dark:text-zinc-300 group-hover:bg-[#c3d809] group-hover:text-gray-900 transition-colors duration-200 shadow-sm"
+            >
+              <i class="fa-solid fa-user text-sm"></i>
+            </div>
+            <div class="text-left">
+              <span
+                class="block text-base font-bold text-gray-800 dark:text-zinc-200"
+                >About Me</span
+              >
+              <span class="block text-xs text-gray-400 dark:text-zinc-500"
+                >Read my journey & stack</span
+              >
+            </div>
+          </div>
+          <i
+            class="fa-solid fa-chevron-right text-xs text-gray-300 group-hover:text-[#c3d809] transition-colors duration-200 transform group-hover:translate-x-1"
+          ></i>
+        </a>
+
+        <a
+          href="#contact"
+          class="mobile-link group flex items-center justify-between p-4 bg-gray-50 dark:bg-zinc-900/50 border border-gray-100 dark:border-zinc-900 hover:border-[#c3d809] dark:hover:border-[#c3d809] rounded-2xl transition-all duration-200"
+        >
+          <div class="flex items-center gap-4">
+            <div
+              class="w-10 h-10 flex items-center justify-center rounded-xl bg-white dark:bg-zinc-800 text-gray-700 dark:text-zinc-300 group-hover:bg-[#c3d809] group-hover:text-gray-900 transition-colors duration-200 shadow-sm"
+            >
+              <i class="fa-solid fa-envelope text-sm"></i>
+            </div>
+            <div class="text-left">
+              <span
+                class="block text-base font-bold text-gray-800 dark:text-zinc-200"
+                >Contact</span
+              >
+              <span class="block text-xs text-gray-400 dark:text-zinc-500"
+                >Let's build something together</span
+              >
+            </div>
+          </div>
+          <i
+            class="fa-solid fa-chevron-right text-xs text-gray-300 group-hover:text-[#c3d809] transition-colors duration-200 transform group-hover:translate-x-1"
+          ></i>
+        </a>
+      </nav>
+
+      <div
+        class="pt-4 border-t border-gray-100 dark:border-zinc-800/50 flex flex-col gap-4"
+      >
+        <div
+          class="flex justify-center gap-4 text-gray-400 dark:text-zinc-500 text-base"
+        >
+          <a
+            href="#"
+            class="hover:text-gray-900 dark:hover:text-zinc-100 transition-colors duration-200"
+            ><i class="fa-brands fa-github"></i
+          ></a>
+          <a
+            href="#"
+            class="hover:text-gray-900 dark:hover:text-zinc-100 transition-colors duration-200"
+            ><i class="fa-brands fa-linkedin"></i
+          ></a>
+          <a
+            href="#"
+            class="hover:text-gray-900 dark:hover:text-zinc-100 transition-colors duration-200"
+            ><i class="fa-brands fa-x-twitter"></i
+          ></a>
+        </div>
+        <div
+          class="text-center font-poppins text-[10px] font-medium text-gray-400 dark:text-zinc-500 tracking-widest uppercase"
+        >
+          © 2026 Waris Mandozai
+        </div>
+      </div>
+    </div>
+
+    <!-- !================================= -->
+    <!-- !hero section -->
+    <!-- !================================= -->
+
+    <section
+      id="home"
+      class="relative z-10 min-h-[calc(100vh-90px)] flex items-center justify-center px-4 py-6 sm:px-6 sm:py-8 overflow-hidden"
+    >
+      <div class="w-full max-w-3xl mx-auto text-center relative">
+        <div
+          class="hero-image mx-auto relative w-32 h-32 sm:w-40 sm:h-40 md:w-44 md:h-44 mb-5"
+        >
+          <div
+            class="absolute -inset-2 rounded-full border-2 border-[#c3d809] border-t-transparent border-b-transparent animate-[spin_8s_linear_infinite]"
+          ></div>
+
+          <div
+            class="absolute -inset-2 rounded-full bg-[#c3d809]/10 blur-xl"
+          ></div>
+
+          <img
+            src="./assets/light.png"
+            alt="Waris Mandozai"
+            class="relative z-10 w-full h-full object-cover rounded-full border-4 border-white shadow-2xl dark:hidden"
+          />
+
+          <img
+            src="./assets/dark.png"
+            alt="Waris Mandozai"
+            class="relative z-10 hidden w-full h-full object-cover rounded-full border-4 border-zinc-900 shadow-2xl dark:block"
+          />
+        </div>
+
+        <h1
+          class="hero-name font-oswald text-3xl sm:text-4xl md:text-5xl font-bold tracking-wide text-zinc-900 dark:text-white"
+        >
+          <span class="name-letter">W</span>
+          <span class="name-letter">A</span>
+          <span class="name-letter">R</span>
+          <span class="name-letter">I</span>
+          <span class="name-letter">S</span>
+
+          <span class="name-space">&nbsp;</span>
+
+          <span class="name-letter lime-letter">M</span>
+          <span class="name-letter lime-letter">A</span>
+          <span class="name-letter lime-letter">N</span>
+          <span class="name-letter lime-letter">D</span>
+          <span class="name-letter lime-letter">O</span>
+          <span class="name-letter lime-letter">Z</span>
+          <span class="name-letter lime-letter">A</span>
+          <span class="name-letter lime-letter">I</span>
+        </h1>
+
+        <div class="hero-title mt-2 flex items-center justify-center gap-3">
+          <span class="hidden sm:block w-10 h-[2px] bg-[#c3d809]"></span>
+
+          <h2
+            class="font-poppins text-base sm:text-lg md:text-xl font-medium text-zinc-700 dark:text-zinc-300"
+          >
+            <span class="text-[#c3d809]">FullStack</span>
+            Developer
+          </h2>
+
+          <span class="hidden sm:block w-10 h-[2px] bg-[#c3d809]"></span>
+        </div>
+
+        <p
+          class="hero-description max-w-xl mx-auto mt-3 text-xs sm:text-sm md:text-base leading-6 text-zinc-600 dark:text-zinc-400"
+        >
+          I build modern, responsive and user-friendly web applications with a
+          focus on clean code and great user experiences.
+        </p>
+
+        <div class="hero-socials mt-5 flex justify-center items-center gap-3">
+          <a
+            href="https://github.com/waris-dev7"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-9 h-9 flex items-center justify-center rounded-full border border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 transition-all duration-300 hover:border-[#c3d809] hover:text-[#c3d809] hover:-translate-y-1"
+          >
+            <i class="fa-brands fa-github"></i>
+          </a>
+
+          <a
+            href="#projects"
+            class="w-9 h-9 flex items-center justify-center rounded-full border border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 transition-all duration-300 hover:border-[#c3d809] hover:text-[#c3d809] hover:-translate-y-1"
+          >
+            <i class="fa-solid fa-code"></i>
+          </a>
+
+          <a
+            href="#contact"
+            class="w-9 h-9 flex items-center justify-center rounded-full border border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 transition-all duration-300 hover:border-[#c3d809] hover:text-[#c3d809] hover:-translate-y-1"
+          >
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- !================================= -->
+    <!-- !skills section -->
+    <!-- !================================= -->
+    <section
+      id="skills"
+      class="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 py-20 overflow-hidden"
+    >
+      <div class="text-center mb-10">
+        <h2
+          class="text-5xl sm:text-6xl font-oswald text-[#c3d809] tracking-widest"
+        >
+          Skills
+        </h2>
+
+        <p class="font-poppins text-sm text-zinc-600 dark:text-zinc-400 mt-3">
+          Technologies I use to build modern web applications
+        </p>
+      </div>
+
+      <div class="solar-system">
+        <div class="orbit orbit-1"></div>
+        <div class="orbit orbit-2"></div>
+        <div class="orbit orbit-3"></div>
+
+        <div class="solar-center">
+          <i class="fa-solid fa-code"></i>
+          <span>Web<br />Dev</span>
+        </div>
+
+        <div class="skill skill-html">
+          <i class="fa-brands fa-html5"></i>
+          <span>HTML</span>
+        </div>
+
+        <div class="skill skill-css">
+          <i class="fa-brands fa-css3-alt"></i>
+          <span>CSS</span>
+        </div>
+
+        <div class="skill skill-js">
+          <i class="fa-brands fa-js"></i>
+          <span>JavaScript</span>
+        </div>
+
+        <div class="skill skill-tailwind">
+          <i class="fa-solid fa-wind"></i>
+          <span>Tailwind</span>
+        </div>
+
+        <div class="skill skill-node">
+          <i class="fa-brands fa-node-js"></i>
+          <span>Node.js</span>
+        </div>
+
+        <div class="skill skill-git">
+          <i class="fa-brands fa-git-alt"></i>
+          <span>Git</span>
+        </div>
+
+        <div class="skill skill-github">
+          <i class="fa-brands fa-github"></i>
+          <span>GitHub</span>
+        </div>
+
+        <div class="skill skill-react">
+          <i class="fa-brands fa-react"></i>
+          <span>React</span>
+        </div>
+        <div class="skill skill-bootstrap">
+          <i class="fa-brands fa-bootstrap"></i>
+          <span>Bootstrap</span>
+        </div>
+
+        <div class="skill skill-php">
+          <i class="fa-brands fa-php"></i>
+          <span>PHP</span>
+        </div>
+      </div>
+    </section>
+    <!-- !================================= -->
+    <!-- !projects section -->
+    <!-- !================================= -->
+    <section
+      class="scroll-mt-11 z-10 relative px-4 py-10 sm:px-6 md:px-10"
+      id="projects"
+    >
+      <div class="title flex justify-center">
+        <h1 class="text-5xl font-oswald text-[#c3d809] tracking-widest">
+          Projects
+        </h1>
+      </div>
+      <div
+        class="projects-container p-6 sm:p-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+      >
+        <!-- Project 1 -->
+        <div data-aos="fade-up" data-aos-delay="0">
+          <div
+            class="group bg-white dark:bg-zinc-900 rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+          >
+            <!-- Project Image -->
+            <div class="h-48 overflow-hidden">
+              <img
+                src="./assets/bill.png"
+                alt="Electricity Bill"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+
+            <!-- Project Content -->
+            <div class="p-5">
+              <h3
+                class="font-oswald text-2xl font-bold text-[#c3d809] dark:text-[#c3d809]"
+              >
+                Electricity Bill
+              </h3>
+
+              <p
+                class="font-poppins text-sm leading-6 text-zinc-600 dark:text-zinc-400 mt-2"
+              >
+                A simple electricity bill management system for calculating
+                individual electricity payments.
+              </p>
+
+              <a
+                href="https://wmbill.netlify.app/"
+                target="_blank"
+                class="inline-flex items-center gap-2 mt-4 text-sm font-semibold text-zinc-900 dark:text-white hover:text-[#c3d809] transition-colors duration-300"
+              >
+                View Project
+                <i class="fa-solid fa-arrow-right text-xs"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div data-aos="fade-up" data-aos-delay="150">
+          <div
+            class="group bg-white dark:bg-zinc-900 rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+          >
+            <!-- Project Image -->
+            <div class="h-48 overflow-hidden">
+              <img
+                src="./assets/quotes.png"
+                alt="Electricity Bill"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+
+            <!-- Project Content -->
+            <div class="p-5">
+              <h3
+                class="font-oswald text-2xl font-bold text-[#c3d809] dark:text-[#c3d809]"
+              >
+                Quotes
+              </h3>
+
+              <p
+                class="font-poppins text-sm leading-6 text-zinc-600 dark:text-zinc-400 mt-2"
+              >
+                Quotes website that contains quotes from diffrent peaple
+              </p>
+
+              <a
+                href="https://waris-dev7.github.io/Quotes-App"
+                target="_blank"
+                class="inline-flex items-center gap-2 mt-4 text-sm font-semibold text-zinc-900 dark:text-white hover:text-[#c3d809] transition-colors duration-300"
+              >
+                View Project
+                <i class="fa-solid fa-arrow-right text-xs"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div data-aos="fade-up" data-aos-delay="300">
+          <div
+            class="group bg-white dark:bg-zinc-900 rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+          >
+            <!-- Project Image -->
+            <div class="h-48 overflow-hidden">
+              <img
+                src="./assets/Afghan typing master.png"
+                alt="Electricity Bill"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+
+            <!-- Project Content -->
+            <div class="p-5">
+              <h3
+                class="font-oswald text-2xl font-bold text-[#c3d809] dark:text-[#c3d809]"
+              >
+                Afghan Typing Master
+              </h3>
+
+              <p
+                class="font-poppins text-sm leading-6 text-zinc-600 dark:text-zinc-400 mt-2"
+              >
+                Improve your typing skills with with Afghan Typing Master and
+                see the diffrence in short
+              </p>
+
+              <a
+                href="https://waris-dev7.github.io/Afghan-Typing-Master"
+                target="_blank"
+                class="inline-flex items-center gap-2 mt-4 text-sm font-semibold text-zinc-900 dark:text-white hover:text-[#c3d809] transition-colors duration-300"
+              >
+                View Project
+                <i class="fa-solid fa-arrow-right text-xs"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div data-aos="fade-up" data-aos-delay="400">
+          <div
+            class="group bg-white dark:bg-zinc-900 rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="./assets/gra&sha.png"
+                alt="Electricity Bill"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+
+            <div class="p-5">
+              <h3
+                class="font-oswald text-2xl font-bold text-[#c3d809] dark:text-[#c3d809]"
+              >
+                Gradients and Shadows
+              </h3>
+
+              <p
+                class="font-poppins text-sm leading-6 text-zinc-600 dark:text-zinc-400 mt-2"
+              >
+                CSS tookit that cantains more than 100 gradients and box shadows
+                you can use in your project.
+              </p>
+
+              <a
+                href="https://waris-dev7.github.io/gradients-and-shadows/"
+                target="_blank"
+                class="inline-flex items-center gap-2 mt-4 text-sm font-semibold text-zinc-900 dark:text-white hover:text-[#c3d809] transition-colors duration-300"
+              >
+                View Project
+                <i class="fa-solid fa-arrow-right text-xs"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- !============================= -->
+    <!-- !about section -->
+    <!-- !============================= -->
+
+    <section id="about" class="relative z-10 px-6 py-24">
+      <!-- Section Title -->
+      <div class="text-center mb-16" data-aos="fade-up" data-aos-duration="800">
+        <p
+          class="font-poppins text-sm font-semibold tracking-[0.3em] uppercase text-[#c3d809] mb-3"
+        >
+          About Me
+        </p>
+
+        <h2
+          class="font-oswald text-5xl sm:text-6xl tracking-widest text-zinc-900 dark:text-white"
+        >
+          A Little About Me
+        </h2>
+      </div>
+
+      <div
+        class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-20 items-center"
+      >
+        <div
+          class="flex justify-center"
+          data-aos="fade-right"
+          data-aos-duration="800"
+        >
+          <div
+            class="w-80 h-80 sm:w-96 sm:h-96 md:w-[26rem] md:h-[26rem] rounded-3xl overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-xl"
+          >
+            <img
+              src="./assets/light.png"
+              alt="Waris Mandozai"
+              class="w-full h-full object-cover dark:hidden"
+            />
+
+            <img
+              src="./assets/dark.png"
+              alt="Waris Mandozai"
+              class="hidden w-full h-full object-cover dark:block"
+            />
+          </div>
+        </div>
+
+        <!-- Text -->
+        <div data-aos="fade-left" data-aos-duration="800">
+          <p
+            class="font-poppins text-sm font-semibold tracking-widest text-[#c3d809] uppercase mb-3"
+          >
+            Who I Am
+          </p>
+
+          <h3
+            class="font-oswald text-3xl sm:text-4xl font-bold tracking-wide text-zinc-900 dark:text-white mb-6"
+          >
+            Hello, I'm Waris
+          </h3>
+
+          <p
+            class="font-poppins text-base sm:text-lg leading-8 text-zinc-600 dark:text-zinc-400 mb-5"
+          >
+            I'm a Computer Science student and an aspiring FullStack Developer.
+            I enjoy creating clean, responsive and interactive websites while
+            continuously improving my programming skills.
+          </p>
+
+          <p
+            class="font-poppins text-base sm:text-lg leading-8 text-zinc-600 dark:text-zinc-400 mb-8"
+          >
+            My journey started with HTML and CSS. Then I moved into JavaScript
+            and Node.js. I'm now focused on building real projects and turning
+            what I learn into useful applications.
+          </p>
+
+          <div class="flex flex-wrap gap-3">
+            <span
+              class="px-4 py-2 rounded-full bg-[#c3d809]/10 border border-[#c3d809]/20 font-poppins text-sm font-medium text-zinc-800 dark:text-zinc-200"
+            >
+              HTML
+            </span>
+
+            <span
+              class="px-4 py-2 rounded-full bg-[#c3d809]/10 border border-[#c3d809]/20 font-poppins text-sm font-medium text-zinc-800 dark:text-zinc-200"
+            >
+              CSS
+            </span>
+
+            <span
+              class="px-4 py-2 rounded-full bg-[#c3d809]/10 border border-[#c3d809]/20 font-poppins text-sm font-medium text-zinc-800 dark:text-zinc-200"
+            >
+              JavaScript
+            </span>
+
+            <span
+              class="px-4 py-2 rounded-full bg-[#c3d809]/10 border border-[#c3d809]/20 font-poppins text-sm font-medium text-zinc-800 dark:text-zinc-200"
+            >
+              Node.js
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="max-w-5xl mx-auto mt-24"
+        data-aos="fade-up"
+        data-aos-duration="800"
+      >
+        <div
+          class="relative overflow-hidden rounded-3xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-lg"
+        >
+          <div
+            id="about-carousel"
+            class="flex transition-transform duration-700 ease-out"
+          >
+            <!-- Slide 1 -->
+            <div class="min-w-full px-16 sm:px-20 py-14 md:px-24">
+              <p
+                class="font-poppins text-sm font-semibold tracking-widest text-[#c3d809] mb-4"
+              >
+                01
+              </p>
+
+              <h3
+                class="font-oswald text-3xl md:text-4xl font-bold tracking-wide text-zinc-900 dark:text-white mb-5"
+              >
+                Web Development
+              </h3>
+
+              <p
+                class="font-poppins text-base md:text-lg leading-8 text-zinc-600 dark:text-zinc-400 max-w-2xl"
+              >
+                I enjoy turning ideas into clean, responsive and interactive web
+                experiences that are simple to use and enjoyable to explore.
+              </p>
+            </div>
+
+            <div class="min-w-full px-16 sm:px-20 py-14 md:px-24">
+              <p
+                class="font-poppins text-sm font-semibold tracking-widest text-[#c3d809] mb-4"
+              >
+                02
+              </p>
+
+              <h3
+                class="font-oswald text-3xl md:text-4xl font-bold tracking-wide text-zinc-900 dark:text-white mb-5"
+              >
+                JavaScript
+              </h3>
+
+              <p
+                class="font-poppins text-base md:text-lg leading-8 text-zinc-600 dark:text-zinc-400 max-w-2xl"
+              >
+                I use JavaScript to create dynamic interfaces, interactions and
+                useful functionality for websites and applications.
+              </p>
+            </div>
+
+            <div class="min-w-full px-16 sm:px-20 py-14 md:px-24">
+              <p
+                class="font-poppins text-sm font-semibold tracking-widest text-[#c3d809] mb-4"
+              >
+                03
+              </p>
+
+              <h3
+                class="font-oswald text-3xl md:text-4xl font-bold tracking-wide text-zinc-900 dark:text-white mb-5"
+              >
+                Backend Development
+              </h3>
+
+              <p
+                class="font-poppins text-base md:text-lg leading-8 text-zinc-600 dark:text-zinc-400 max-w-2xl"
+              >
+                I'm learning Node.js and PHP and exploring how servers, APIs and
+                applications work behind the scenes.
+              </p>
+            </div>
+
+            <div class="min-w-full px-16 sm:px-20 py-14 md:px-24">
+              <p
+                class="font-poppins text-sm font-semibold tracking-widest text-[#c3d809] mb-4"
+              >
+                04
+              </p>
+
+              <h3
+                class="font-oswald text-3xl md:text-4xl font-bold tracking-wide text-zinc-900 dark:text-white mb-5"
+              >
+                Computer Science
+              </h3>
+
+              <p
+                class="font-poppins text-base md:text-lg leading-8 text-zinc-600 dark:text-zinc-400 max-w-2xl"
+              >
+                I'm building my foundation in programming, algorithms, data
+                structures and computer science.
+              </p>
+            </div>
+          </div>
+
+          <button
+            id="about-prev"
+            type="button"
+            class="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 shadow-md flex items-center justify-center hover:bg-[#c3d809] hover:text-black hover:border-[#c3d809] hover:scale-105 transition-all duration-300"
+          >
+            <i class="fa-solid fa-arrow-left text-sm"></i>
+          </button>
+
+          <button
+            id="about-next"
+            type="button"
+            class="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 shadow-md flex items-center justify-center hover:bg-[#c3d809] hover:text-black hover:border-[#c3d809] hover:scale-105 transition-all duration-300"
+          >
+            <i class="fa-solid fa-arrow-right text-sm"></i>
+          </button>
+        </div>
+
+        <div class="flex justify-center gap-2 mt-6">
+          <button
+            type="button"
+            class="about-dot w-2.5 h-2.5 rounded-full bg-[#c3d809]"
+          ></button>
+
+          <button
+            type="button"
+            class="about-dot w-2.5 h-2.5 rounded-full bg-zinc-300 dark:bg-zinc-700"
+          ></button>
+
+          <button
+            type="button"
+            class="about-dot w-2.5 h-2.5 rounded-full bg-zinc-300 dark:bg-zinc-700"
+          ></button>
+
+          <button
+            type="button"
+            class="about-dot w-2.5 h-2.5 rounded-full bg-zinc-300 dark:bg-zinc-700"
+          ></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- !============================= -->
+    <!-- !contact section -->
+    <!-- !============================= -->
+
+    <section id="contact" class="relative z-10 px-4 sm:px-6 py-24 sm:py-32">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-14" data-aos="fade-up">
+          <p
+            class="font-poppins text-sm font-semibold tracking-[0.3em] uppercase text-[#c3d809] mb-3"
+          >
+            Get In Touch
+          </p>
+
+          <h2
+            class="font-oswald text-5xl sm:text-6xl md:text-7xl font-bold tracking-wide text-zinc-900 dark:text-white"
+          >
+            LET'S MAKE IT
+            <span class="text-[#c3d809]">REAL.</span>
+          </h2>
+
+          <p
+            class="font-poppins max-w-2xl mx-auto mt-5 text-sm sm:text-base leading-7 text-zinc-600 dark:text-zinc-400"
+          >
+            Have an idea, project or opportunity in mind? Feel free to reach
+            out. I'm always interested in discussing new ideas and building
+            something great together.
+          </p>
+        </div>
+
+        <div
+          class="border-y border-zinc-200 dark:border-zinc-800"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <a
+            href="mailto:warismandozai0@gmail.com"
+            class="contact-row group flex items-center gap-4 sm:gap-6 py-6 sm:py-7 border-b border-zinc-200 dark:border-zinc-800"
+          >
+            <div
+              class="w-12 h-12 sm:w-14 sm:h-14 shrink-0 rounded-2xl flex items-center justify-center bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 group-hover:bg-[#c3d809] group-hover:text-zinc-900 group-hover:border-[#c3d809] transition-all duration-300"
+            >
+              <i class="fa-solid fa-envelope text-lg"></i>
+            </div>
+
+            <div class="flex-1 min-w-0">
+              <p
+                class="font-poppins text-xs sm:text-sm font-semibold tracking-widest uppercase text-[#c3d809]"
+              >
+                Email Me
+              </p>
+
+              <p
+                class="font-poppins mt-1 text-base sm:text-xl text-zinc-800 dark:text-zinc-200 truncate"
+              >
+                warismandozai0@gmail.com
+              </p>
+            </div>
+
+            <i
+              class="fa-solid fa-arrow-up-right-from-square text-zinc-400 dark:text-zinc-500 group-hover:text-[#c3d809] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300"
+            ></i>
+          </a>
+
+          <a
+            href="https://github.com/waris-dev7"
+            target="_blank"
+            class="contact-row group flex items-center gap-4 sm:gap-6 py-6 sm:py-7 border-b border-zinc-200 dark:border-zinc-800"
+          >
+            <div
+              class="w-12 h-12 sm:w-14 sm:h-14 shrink-0 rounded-2xl flex items-center justify-center bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 group-hover:bg-[#c3d809] group-hover:text-zinc-900 group-hover:border-[#c3d809] transition-all duration-300"
+            >
+              <i class="fa-brands fa-github text-xl"></i>
+            </div>
+
+            <div class="flex-1 min-w-0">
+              <p
+                class="font-poppins text-xs sm:text-sm font-semibold tracking-widest uppercase text-[#c3d809]"
+              >
+                Check My Work
+              </p>
+
+              <p
+                class="font-poppins mt-1 text-base sm:text-xl text-zinc-800 dark:text-zinc-200"
+              >
+                GitHub Profile
+              </p>
+            </div>
+
+            <i
+              class="fa-solid fa-arrow-up-right-from-square text-zinc-400 dark:text-zinc-500 group-hover:text-[#c3d809] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300"
+            ></i>
+          </a>
+
+          <a
+            href="https://wa.me/93766317085"
+            target="_blank"
+            class="contact-row group flex items-center gap-4 sm:gap-6 py-6 sm:py-7 border-b border-zinc-200 dark:border-zinc-800"
+          >
+            <div
+              class="w-12 h-12 sm:w-14 sm:h-14 shrink-0 rounded-2xl flex items-center justify-center bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 group-hover:bg-[#c3d809] group-hover:text-zinc-900 group-hover:border-[#c3d809] transition-all duration-300"
+            >
+              <i class="fa-brands fa-whatsapp text-xl"></i>
+            </div>
+
+            <div class="flex-1 min-w-0">
+              <p
+                class="font-poppins text-xs sm:text-sm font-semibold tracking-widest uppercase text-[#c3d809]"
+              >
+                Message Me
+              </p>
+
+              <p
+                class="font-poppins mt-1 text-base sm:text-xl text-zinc-800 dark:text-zinc-200"
+              >
+                +93 766 317 085
+              </p>
+            </div>
+
+            <i
+              class="fa-solid fa-arrow-up-right-from-square text-zinc-400 dark:text-zinc-500 group-hover:text-[#c3d809] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300"
+            ></i>
+          </a>
+
+          <div
+            class="contact-row group flex items-center gap-4 sm:gap-6 py-6 sm:py-7"
+          >
+            <div
+              class="w-12 h-12 sm:w-14 sm:h-14 shrink-0 rounded-2xl flex items-center justify-center bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 group-hover:bg-[#c3d809] group-hover:text-zinc-900 group-hover:border-[#c3d809] transition-all duration-300"
+            >
+              <i class="fa-solid fa-location-dot text-lg"></i>
+            </div>
+
+            <div class="flex-1 min-w-0">
+              <p
+                class="font-poppins text-xs sm:text-sm font-semibold tracking-widest uppercase text-[#c3d809]"
+              >
+                Location
+              </p>
+
+              <p
+                class="font-poppins mt-1 text-base sm:text-xl text-zinc-800 dark:text-zinc-200"
+              >
+                Kabul, Afghanistan
+              </p>
+            </div>
+
+            <i
+              class="fa-solid fa-location-arrow text-zinc-400 dark:text-zinc-500 group-hover:text-[#c3d809] transition-all duration-300"
+            ></i>
+          </div>
+        </div>
+
+        <div class="flex flex-col items-center mt-14" data-aos="fade-up">
+          <p class="font-poppins text-sm text-zinc-500 dark:text-zinc-400 mb-5">
+            Prefer sending a direct message?
+          </p>
+
+          <button
+            type="button"
+            class="open-contact-form group inline-flex items-center gap-3 px-7 sm:px-9 py-4 rounded-2xl bg-[#c3d809] text-zinc-900 font-poppins font-bold hover:bg-[#d5eb0a] hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
+          >
+            Start A Conversation
+
+            <i
+              class="fa-solid fa-arrow-up-right-from-square text-sm group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300"
+            ></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- !============================= -->
+    <!-- !contact modal -->
+    <!-- !============================= -->
+
+    <div
+      class="contact-modal fixed inset-0 z-[100] flex items-center justify-center px-4 py-6 opacity-0 invisible transition-all duration-300"
+    >
+      <div
+        class="close-contact-form absolute inset-0 bg-zinc-950/60 backdrop-blur-sm"
+      ></div>
+
+      <div
+        class="contact-modal-box relative z-10 w-full max-w-xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-3xl shadow-2xl p-6 sm:p-8 scale-95 translate-y-6 transition-all duration-300"
+      >
+        <button
+          type="button"
+          class="close-contact-form absolute top-5 right-5 w-10 h-10 rounded-xl bg-zinc-100 dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 hover:bg-[#c3d809] hover:text-zinc-900 transition-all duration-300"
+        >
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+
+        <div class="mb-7 pr-12">
+          <p
+            class="font-poppins text-xs font-semibold tracking-[0.25em] uppercase text-[#c3d809] mb-2"
+          ></p>
+
+          <h3
+            class="font-oswald text-4xl sm:text-5xl tracking-wide text-zinc-900 dark:text-white"
+          >
+            LET'S TALK.
+          </h3>
+
+          <p
+            class="font-poppins text-sm leading-6 text-zinc-600 dark:text-zinc-400 mt-2"
+          >
+            Tell me a little about yourself and what you have in mind.
+          </p>
+        </div>
+
+        <form
+          class="contact-form space-y-5"
+          action="https://formspree.io/f/xwlkyobe"
+          method="POST"
+        >
+          <div class="unique-input">
+            <div class="input-icon">
+              <i class="fa-solid fa-user"></i>
+            </div>
+
+            <input
+              type="text"
+              id="contact-name"
+              name="name"
+              placeholder=" "
+              required
+            />
+
+            <label for="contact-name">Your Name</label>
+          </div>
+
+          <div class="unique-input">
+            <div class="input-icon">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+
+            <input
+              type="email"
+              id="contact-email"
+              name="email"
+              placeholder=" "
+              required
+            />
+
+            <label for="contact-email">Email Address</label>
+          </div>
+
+          <div class="unique-input">
+            <div class="input-icon">
+              <i class="fa-solid fa-lightbulb"></i>
+            </div>
+
+            <input
+              type="text"
+              id="contact-subject"
+              name="subject"
+              placeholder=" "
+              required
+            />
+
+            <label for="contact-subject">What's this about?</label>
+          </div>
+
+          <div class="unique-input unique-textarea">
+            <div class="input-icon">
+              <i class="fa-solid fa-message"></i>
+            </div>
+
+            <textarea
+              id="contact-message"
+              name="message"
+              placeholder=" "
+              required
+              rows="4"
+            ></textarea>
+
+            <label for="contact-message">Tell me about your idea...</label>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full flex items-center justify-center gap-3 px-6 py-4 rounded-2xl bg-[#c3d809] text-zinc-900 font-poppins font-bold hover:bg-[#d5eb0a] hover:shadow-xl active:scale-[0.98] transition-all duration-300"
+          >
+            Send Message
+
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- !============================= -->
+    <!-- !footer section -->
+    <!-- !============================= -->
+
+    <footer
+      class="relative z-10 border-t border-zinc-200/30 dark:border-zinc-800/30 bg-transparent"
+    >
+      <div class="max-w-6xl mx-auto px-6 py-12 sm:py-14">
+        <div
+          class="flex flex-col sm:flex-row items-center justify-between gap-8"
+        >
+          <div class="flex items-center gap-3">
+            <a
+              href="#home"
+              class="w-10 h-10 flex items-center justify-center rounded-xl bg-[#c3d809] text-zinc-900 font-black text-xl shadow-sm hover:scale-105 transition-transform duration-300"
+            >
+              W
+            </a>
+
+            <div>
+              <h2
+                class="font-oswald text-xl font-bold tracking-wide text-zinc-900 dark:text-white"
+              >
+                Waris Mandozai
+              </h2>
+
+              <p
+                class="font-poppins text-xs text-zinc-500 dark:text-zinc-400 mt-1"
+              >
+                FullStack Developer
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <a
+              href="https://github.com/waris-dev7"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              class="w-10 h-10 flex items-center justify-center rounded-xl border border-zinc-300/50 dark:border-zinc-700/50 text-zinc-700 dark:text-zinc-300 hover:bg-[#c3d809] hover:text-zinc-900 hover:border-[#c3d809] hover:-translate-y-1 transition-all duration-300"
+            >
+              <i class="fa-brands fa-github"></i>
+            </a>
+
+            <a
+              href="mailto:warismandozai0@gmail.com"
+              aria-label="Email"
+              class="w-10 h-10 flex items-center justify-center rounded-xl border border-zinc-300/50 dark:border-zinc-700/50 text-zinc-700 dark:text-zinc-300 hover:bg-[#c3d809] hover:text-zinc-900 hover:border-[#c3d809] hover:-translate-y-1 transition-all duration-300"
+            >
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+
+            <a
+              href="#home"
+              aria-label="Back to top"
+              class="w-10 h-10 flex items-center justify-center rounded-xl bg-zinc-900/5 dark:bg-white/5 border border-zinc-300/30 dark:border-zinc-700/30 text-zinc-700 dark:text-zinc-300 hover:bg-[#c3d809] hover:text-zinc-900 hover:border-[#c3d809] hover:-translate-y-1 transition-all duration-300"
+            >
+              <i class="fa-solid fa-arrow-up text-sm"></i>
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-zinc-300/30 dark:border-zinc-700/30 mt-8 pt-6"
+        >
+          <div
+            class="flex flex-col sm:flex-row items-center justify-between gap-3"
+          >
+            <p
+              class="font-poppins text-xs text-zinc-500 dark:text-zinc-400 text-center"
+            >
+              © 2026 Waris Mandozai. All rights reserved.
+            </p>
+
+            <p
+              class="font-poppins text-xs text-zinc-500 dark:text-zinc-400 text-center"
+            >
+              Built with ❤️ by Waris Mandozai
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="./main.js"></script>
+    <!-- AOS JavaScript -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+      AOS.init({
+        duration: 1000,
+        easing: "ease-in-out",
+      });
+    </script>
+  </body>
+</html>
