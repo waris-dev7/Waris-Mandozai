@@ -731,3 +731,30 @@ document.addEventListener("keydown", (event) => {
     closeContactForm();
   }
 });
+
+// =================================
+// Intro Typing Animation
+// =================================
+
+const introScreen = document.querySelector(".intro-screen");
+const introText = document.querySelector(".intro-text");
+const hero = document.querySelector("#home");
+
+const text = "Hello";
+let index = 0;
+
+function typeIntro() {
+  if (index < text.length) {
+    introText.textContent += text[index];
+    index++;
+
+    setTimeout(typeIntro, 150);
+  } else {
+    setTimeout(() => {
+      introScreen.classList.add("hide");
+      hero.classList.add("hero-start");
+    }, 700);
+  }
+}
+
+typeIntro();
