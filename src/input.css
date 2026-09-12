@@ -16,6 +16,74 @@
   pointer-events: none;
 }
 
+/* ================================= */
+/* Intro Animation */
+/* ================================= */
+
+.intro-screen {
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 700ms ease,
+    visibility 700ms ease;
+}
+
+.intro-screen.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.intro-text {
+  min-width: 8ch;
+  text-align: center;
+}
+
+/* ================================= */
+/* Hero Entrance Animation */
+/* ================================= */
+
+.hero-image,
+.hero-name,
+.hero-title,
+.hero-description,
+.hero-socials {
+  opacity: 0;
+  transform: translateY(25px);
+}
+
+/* Start hero animation */
+.hero-start .hero-image {
+  animation: heroFadeUp 800ms ease forwards;
+}
+
+.hero-start .hero-name {
+  animation: heroFadeUp 800ms ease 150ms forwards;
+}
+
+.hero-start .hero-title {
+  animation: heroFadeUp 800ms ease 300ms forwards;
+}
+
+.hero-start .hero-description {
+  animation: heroFadeUp 800ms ease 450ms forwards;
+}
+
+.hero-start .hero-socials {
+  animation: heroFadeUp 800ms ease 600ms forwards;
+}
+
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* ==========================================
    HERO ANIMATIONS
 ========================================== */
